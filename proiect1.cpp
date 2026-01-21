@@ -1,4 +1,4 @@
-#include <iostream>
+ #include <iostream>
 #include <string>
 #define IMP_VENIT 0.12
 #define FOND_SOCIAL 0.24
