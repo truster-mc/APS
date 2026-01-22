@@ -17,16 +17,16 @@ void afisare_salarii(int salarii[], int nr_angajati);
 
 
 int main() {
-cleanscreen();
+    system("clear");
     int option;
     int nr_angajati =20;
     int salarii[NMAX] = {3000, 4500, 7000, 12000, 15000, 8000, 9500, 11000, 4000, 6000,
                            13000, 14000, 2000, 5000, 16000, 17000, 18000, 19000, 21000, 22000};
 do {
-    system("cls");
+
     cout << "Proiect #2, elaborat, st. gr. IS11R, Cojocari Mihai.";
-    cout <<" \n 1„. De determinat cel mai mic si cel mai mare salariu." ;
-    cout <<" \n 2„. media" ;
+    cout <<" \n 1„. Care este cel mai mic si cel mai mare salariu." ;
+    cout <<" \n 2„. Care este media salariilor" ;
     cout <<" \n 3„. aranjare" ;
     cout <<" \n 4„. rotire" ;
     cout <<" \n 5„. cautare" ;
@@ -91,35 +91,63 @@ do {
     }
 } while (option);
     
-    getchar();
+
     return 0;
 }
 
 int min_salariu(int salarii[], int nr_angajati) {
 
-    return 1;
+    int min = salarii[0];
+    for (int i = 1; i < nr_angajati; i++) {
+        if (salarii[i] < min) {
+            min = salarii[i];
+        }
+    }
+    return min;
 }
 
 
 int max_salariu(int salarii[], int nr_angajati) {
 
-    return 1;
+    int max = salarii[0];
+    for (int i = 1; i < nr_angajati; i++) {
+        if (salarii[i] > max) {
+            max = salarii[i];
+        }
+    }
+    return max;
 }
 
 
 double medie_salariu(int salarii[], int nr_angajati) {
-
-    return 1;
+int suma = 0;
+    for (int i = 0; i < nr_angajati; i++) {
+        suma += salarii[i];
+    }
+    return (double)suma / nr_angajati;
 }
 
 
 void aranjare_salariu(int salarii[], int nr_angajati) {
-
+int temp;
+    for (int i = 0; i < nr_angajati - 1; i++) {
+        for (int j = i + 1; j < nr_angajati; j++) {
+            if (salarii[i] > salarii[j]) {
+                temp = salarii[i];
+                salarii[i] = salarii[j];
+                salarii[j] = temp;
+            }
+        }
+    }
 }
 
 
 void rotire_salariu(int salarii[], int nr_angajati) {
-
+    int temp = salarii[nr_angajati - 1];
+    for (int i = nr_angajati - 1; i > 0; i--) {
+        salarii[i] = salarii[i - 1];
+    }
+    salarii[0] = temp;
 }
 
 
@@ -146,6 +174,7 @@ void clasificare_salariu(int salarii[], int nr_angajati) {
 
 int citire_salarii(int salarii[]) {
 
+    return 1;
 }
 
 
